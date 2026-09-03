@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-slate-text;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid theme("colors.petrol.DEFAULT");
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-slate-muted;
+  }
+  .ledger-card {
+    @apply bg-paper-card border border-paper-line rounded-seal;
+  }
+  .seal-badge {
+    @apply inline-flex items-center gap-1.5 rounded-seal border px-2.5 py-1 text-xs font-semibold tracking-wide;
+  }
+  /* Large, thumb-friendly tap targets throughout — this app is used on phones. */
+  .tap-target {
+    @apply min-h-[48px];
+  }
+}
